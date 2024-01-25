@@ -1,7 +1,17 @@
-import React from "react";
+import React from "react"
+import Link from "next/link"
 
 function Home() {
-  return <div>Hello world!</div>;
+  return (
+    <>
+      <div>
+        <h1>Home</h1>
+      </div>
+      <div>
+        <Link href='/sobre'>Sobre</Link>
+      </div>
+    </>
+  )
 }
 
-export default Home;
+export default Home
