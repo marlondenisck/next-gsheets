@@ -14,4 +14,4 @@ App next integrado a planilha do google sheets
 
 - Copie o ID da planilha e coloque no arquivo env.example (Este id se encontra na url da planilha)
 
-- Rode as dependências do projeto e ```yarn dev``````
+- Rode as dependências do projeto e ```yarn dev```
