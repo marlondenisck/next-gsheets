@@ -1,21 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import Link from "next/link"
-import useSWR from "swr"
 
 function Pesquisa() {
+  const [mensagem, setMensagem] = useState("")
+
   const save = async () => {
-    const form = {
-      Nome: "aaaa",
-      Email: "aaaa",
-      Whatsapp: "aaaa",
-    }
     try {
-      const response = await fetch("/api/save", {
+      await fetch("/api/save", {
         method: "POST",
-        body: JSON.stringify(form),
+        body: JSON.stringify(mensagem),
       })
-      const data = await response.json()
-      console.log(data)
+      setMensagem("")
+      alert("Mensagem enviada com sucesso!")
     } catch (err) {
       console.log(err)
     }
@@ -30,8 +26,12 @@ function Pesquisa() {
         <Link href="/">Inicio</Link>
       </div>
       <div>
-        Nome:
-        <input type="text" value="" />
+        Mensagem:
+        <input
+          type="text"
+          value={mensagem}
+          onChange={(e) => setMensagem(e.target.value)}
+        />
         <button type="button" onClick={save}>
           Enviar
         </button>

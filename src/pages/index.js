@@ -12,11 +12,13 @@ function Home() {
       <div>
         <h1>Inicio</h1>
       </div>
+      <div></div>
+      <div>{!data ? <div>Carregando pesquisa...</div> : null}</div>
       <div>
-        <Link href="/pesquisa">Pesquisa</Link>
+        {data && data.showCoupon ? (
+          <Link href="/pesquisa">Pesquisa</Link>
+        ) : null}
       </div>
-      <div>{!data ? <div>Carregando...</div> : null}</div>
-      <div>{data && data.showCoupon ? <div>{data.message}</div> : null}</div>
     </>
   )
 }
